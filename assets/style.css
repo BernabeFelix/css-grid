@@ -75,20 +75,38 @@ h6 {
   grid-gap: 10px;
 
   /* this will tell how many, explicit, columns and its size */
-  grid-template-columns: repeat(12, 1fr);
+  /*grid-template-columns: repeat(auto-fill, 150px);*/
 
   /* this will tell how many, explicit, rows and its size */
   /*grid-template-rows: 200px 100px;*/
+  /* uses of repeat: */
+  /* repeat (12, 150px) = explicit number of repeats*/
+  /* repeat (auto-fill, 150px) = will slice the row in as many items fit */
+  /* repeat (auto-fit, 150px) = similar to auto-fill, but it will you will have only the spaces needed */
+  /* columns/rows naming */
+  /* You give names to columns/rows */
+  /* grid-template-columns: [sidebar-1-start] 1fr [content-start] 500px [sidebar-2-start] 1fr; */
+  /*.item1 {*/
+    /*grid-column: sidebar-1-start / content-start;*/
+  /*}*/
+  /* You give can also give multiple names */
+  /*grid-template-columns: [sidebar-1-start] 1fr [sidebar-1-end content-start] 500px [content-end sidebar-2-start] 1fr;*/
+  /*.item1 {*/
+    /*grid-column: sidebar-1-start / sidebar-1-end;*/
+  /*}*/
+
+  /* fit-content(300px) */
+  /* is just like auto but with a max value */
 
   /* this will give size to rows/columns that are out of grid-template- */
   /*grid-auto-rows: 200px;*/
 
   /*grid-auto-columns: 200px;*/
 
-  /* This will put in a new row (default) or column the grid items that are outside grid-template- */
-  /*grid-auto-flow: column;*/
+  /* This will put in a new row (default) or column the grid items that are outside explicit grid-template- */
+  /*grid-auto-flow: (row/column/dense);*/
 
-  /* This will give size to new grid items outside grid-template- */
+  /* This will give size to new grid items outside explicit grid-template- */
   /*grid-auto-columns: 200px;*/
   /*grid-auto-rows: 200px;*/
 
@@ -108,4 +126,27 @@ h6 {
   /*grid-column: span 2 / 4;*/
   /* kind of width 100% */
   /*grid-column: 1 / -1;*/
+
+  /* Define areas according to columns and rows and  */
+  /*grid-template-areas: "sidebar-1 content sidebar-2";*/
+  /* To add an area instead of individual size */
+  /*.item1 {*/
+    /*grid-area: container;*/
+  /*}*/
+  /* You can also use areas to define individual position */
+  /* Using areaName-start and areaName-end */
+  /*.item1 {*/
+    /*grid-column: container-start / container-end;*/
+  /*}*/
+
+  /* Center Items */
+  /* align-* is for column axis */
+  /* justify-* is for row axis */
+  /* In grid we have place-items as a shorthand prop */
+  /* place-items: align-items justify-items */
+  /*.container {*/
+    /*justify-items: center;*/
+    /*align-items: center;*/
+    /*place-items: center center;*/
+  /*}*/
 }
